@@ -2,28 +2,22 @@
 FROM  ubuntu
 RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirror.xtom.com.hk/g' /etc/apt/sources.list
 # Install ngrok
+ENV NOTVISIBLE "in users profile"
 RUN apt update -y && apt install -y tar curl openssh-client openssh-server
 RUN curl -Lk 'https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz' > ngrok.tgz
 RUN tar -xf ngrok.tgz && cp ngrok /bin&& rm -f ngrok.tgz
 RUN echo 'inspect_addr: 0.0.0.0:4040' > /.ngrok
 
 # Install sshd
-RUN apt-get install -y openssh-server
-RUN mkdir /var/run/sshd
-RUN echo 'root:password' | chpasswd
-RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-
-# SSH login fix. Otherwise user is kicked off after login
-RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
-
-ENV NOTVISIBLE "in users profile"
-RUN echo "export VISIBLE=now" >> /etc/profile
-
-# Add start script
-RUN mkdir -p /app
-
 EXPOSE 4040
-RUN /usr/sbin/sshd && ngrok config add-authtoken 1ttZhgDBXTNa3xaGrFkI15bhnUp_3ZgG54Byr2RPeV64L3TJy && ngrok tcp 22
+RUN apt-get install -y openssh-server
+    && mkdir /var/run/sshd
+    && echo root:any | chpasswd
+    && sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
+    && sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+    && echo "export VISIBLE=now" >> /etc/profile
+    && mkdir -p /app
+    && /usr/sbin/sshd && ngrok config add-authtoken 1ttZhgDBXTNa3xaGrFkI15bhnUp_3ZgG54Byr2RPeV64L3TJy && ngrok tcp 22
 
 ENTRYPOINT ["/app/start.sh"]
 #RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirror.xtom.com.hk/g' /etc/apt/sources.list
