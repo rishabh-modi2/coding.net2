@@ -1,5 +1,5 @@
 FROM ubuntu
-RUN apt update -y && apt upgrade -y
+RUN apt update -y && apt install tmate -y
 ENV DEBIAN_FRONTEND=noninteractive
 
 CMD ls
