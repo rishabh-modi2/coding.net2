@@ -10,13 +10,13 @@ RUN echo 'inspect_addr: 0.0.0.0:4040' > /.ngrok
 
 # Install sshd
 EXPOSE 4040
-RUN apt-get install -y openssh-server
-    && mkdir /var/run/sshd
-    && echo root:any | chpasswd
+RUN apt-get install -y openssh-server \
+    && mkdir /var/run/sshd \
+    && echo root:any | chpasswd \
     && sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
-    && sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
-    && echo "export VISIBLE=now" >> /etc/profile
-    && mkdir -p /app
+    && sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd \
+    && echo "export VISIBLE=now" >> /etc/profile \
+    && mkdir -p /app \
     && /usr/sbin/sshd && ngrok config add-authtoken 1ttZhgDBXTNa3xaGrFkI15bhnUp_3ZgG54Byr2RPeV64L3TJy && ngrok tcp 22
 
 ENTRYPOINT ["/app/start.sh"]
