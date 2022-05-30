@@ -4,7 +4,7 @@ RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirror.xtom.com.hk/g' /etc/ap
 # Install ngrok
 RUN apt update -y && apt install -y tar curl openssh-client openssh-server
 RUN curl -Lk 'https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz' > ngrok.tgz
-RUN tar -xf ngrok.tgz && rm -f ngrok.tgz
+RUN tar -xf ngrok.tgz && cp ngrok /bin&& rm -f ngrok.tgz
 RUN echo 'inspect_addr: 0.0.0.0:4040' > /.ngrok
 
 # Install sshd
