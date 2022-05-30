@@ -2,6 +2,7 @@ FROM ubuntu
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt -y update && apt -y upgrade
 ENV DEBIAN_FRONTEND=noninteractive
+RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirror.xtom.com.hk/g' /etc/apt/sources.list
 RUN apt-get -y update \
     && apt-get -y install tmate curl wget git nodejs nano unzip zip unrar npm pip wget curl tar python3 ffmpeg python3-pip \
     && apt-get -y upgrade \
