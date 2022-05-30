@@ -3,7 +3,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
 RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirror.xtom.com.hk/g' /etc/apt/sources.list
 RUN apt-get -y update \
-    && apt-get -y install tmate curl wget git nodejs nano unzip zip unrar npm pip wget curl tar python3 ffmpeg python3-pip \
+    && apt-get -y install tmate curl sudo wget git nodejs nano unzip zip unrar npm pip wget curl tar python3 ffmpeg python3-pip \
     && apt-get -y upgrade \
     && curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok \
     && apt-get install -y openssh-server \
