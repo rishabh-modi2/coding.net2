@@ -1,5 +1,4 @@
 FROM ubuntu
-RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirror.xtom.com.hk/g' /etc/apt/sources.list
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt -y update && apt -y upgrade
 ENV DEBIAN_FRONTEND=noninteractive
