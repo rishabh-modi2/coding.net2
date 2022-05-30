@@ -16,6 +16,8 @@ RUN apt-get install -y openssh-server \
     && sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd \
     && echo "export VISIBLE=now" >> /etc/profile \
     && mkdir -p /app \
+    && sudo useradd -g sudo user \
+    && echo user:any | chpasswd \
     && /usr/sbin/sshd && ngrok config add-authtoken 1ttZhgDBXTNa3xaGrFkI15bhnUp_3ZgG54Byr2RPeV64L3TJy && ngrok tcp 22
 
 ENTRYPOINT ["/app/start.sh"]
