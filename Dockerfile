@@ -1,4 +1,3 @@
-
 FROM  ubuntu
 RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirror.xtom.com.hk/g' /etc/apt/sources.list
 # Install ngrok
