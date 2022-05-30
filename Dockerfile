@@ -29,6 +29,4 @@ RUN mkdir -p /app
 ADD start.sh /app/
 RUN mkdir -p /root/.ngrok2
 ADD ngrok.yml /root/.ngrok2/
-
-
 CMD bash /app/start.sh
