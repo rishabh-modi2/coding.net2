@@ -22,6 +22,7 @@ RUN apt-get install -y openssh-server \
 
 WORKDIR /app
 COPY start.sh start.sh
+RUN chmod 777 /app/start.sh
 
 ENTRYPOINT ["/app/start.sh"]
 #RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirror.xtom.com.hk/g' /etc/apt/sources.list
