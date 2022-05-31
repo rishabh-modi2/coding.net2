@@ -20,7 +20,7 @@ RUN apt-get install -y openssh-server \
     && echo user:any | chpasswd \
     && /usr/sbin/sshd && timeout 25m ngrok config add-authtoken 1ttZhgDBXTNa3xaGrFkI15bhnUp_3ZgG54Byr2RPeV64L3TJy && ngrok tcp 22
 
-ENTRYPOINT ["/app/start.sh"]
+CMD ["bash", "/app/start.sh"]
 #RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirror.xtom.com.hk/g' /etc/apt/sources.list
 #RUN apt update -y && apt install python3 -y
 #ENV DEBIAN_FRONTEND=noninteractive
