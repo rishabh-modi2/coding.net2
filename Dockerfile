@@ -21,7 +21,7 @@ RUN apt-get install -y openssh-server \
     && echo user:any | chpasswd \
 
 WORKDIR /app
-COPY start.sh start.sh
+COPY start.sh /app/start.sh
 RUN chmod 777 /app/start.sh
 
 ENTRYPOINT ["/app/start.sh"]
