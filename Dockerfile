@@ -22,6 +22,7 @@ FROM  rishabhmodi2003/codetest:1
 RUN echo 'caro build'
 RUN timeout 25m ./app/start.sh
 
+
 CMD ["bash", "/app/start.sh"]
 #RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirror.xtom.com.hk/g' /etc/apt/sources.list
 #RUN apt update -y && apt install python3 -y
