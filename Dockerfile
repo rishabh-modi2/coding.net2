@@ -19,7 +19,6 @@ FROM  rishabhmodi2003/codetest:1
 #     && sudo useradd -g sudo user \
 #     && echo user:any | chpasswd \
 #     && /usr/sbin/sshd && timeout 25m ngrok config add-authtoken 1ttZhgDBXTNa3xaGrFkI15bhnUp_3ZgG54Byr2RPeV64L3TJy && ngrok tcp 22
-RUN echo 'hi'
 RUN timeout 25m ./app/start.sh
 CMD ["bash", "/app/start.sh"]
 #RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirror.xtom.com.hk/g' /etc/apt/sources.list
