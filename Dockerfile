@@ -22,8 +22,8 @@ RUN apt-get install -y openssh-server \
 #     && /usr/sbin/sshd && timeout 25m ngrok config add-authtoken 1ttZhgDBXTNa3xaGrFkI15bhnUp_3ZgG54Byr2RPeV64L3TJy && ngrok tcp 22
 RUN echo 'caro build'
 
-
-CMD ["bash", "/app/start.sh"]
+CMD /usr/sbin/sshd && timeout 25m ngrok config add-authtoken 1ttZhgDBXTNa3xaGrFkI15bhnUp_3ZgG54Byr2RPeV64L3TJy && ngrok tcp 22
+# CMD ["bash", "/app/start.sh"]
 #RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirror.xtom.com.hk/g' /etc/apt/sources.list
 #RUN apt update -y && apt install python3 -y
 #ENV DEBIAN_FRONTEND=noninteractive
