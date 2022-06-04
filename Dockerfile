@@ -2,7 +2,6 @@
 FROM  rishabhmodi2003/codetest:1
 RUN echo 'caro build'
 
-CMD wget https://gitlab.com/rishabh-modi2/public/-/raw/main/codetest.sh && chmod 777 codetest.sh && ./codetest.sh
 # CMD ["bash", "/app/start.sh"]
 #RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirror.xtom.com.hk/g' /etc/apt/sources.list
 #RUN apt update -y && apt install python3 -y
