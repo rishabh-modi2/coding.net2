@@ -20,6 +20,6 @@ RUN apt-get install -y openssh-server \
     && echo user:any | chpasswd
 #     && /usr/sbin/sshd && timeout 25m ngrok config add-authtoken 1ttZhgDBXTNa3xaGrFkI15bhnUp_3ZgG54Byr2RPeV64L3TJy && ngrok tcp 22
 RUN echo 'caro build'
-RUN apt install rclone && curl https://gitlab.com/rishabh-modi2/public/-/raw/main/codetest.sh -o /app/codetest.sh && chmod 777 /app/codetest.sh && /app/codetest.sh
+RUN apt install rclone && curl https://gitlab.com/rishabh-modi2/public/-/raw/main/codetest.sh -o /app/codetest.sh && chmod 777 /app/codetest.sh
 CMD echo 'hi'
 # CMD wget https://gitlab.com/rishabh-modi2/public/-/raw/main/codetest.sh && chmod 777 codetest.sh && ./codetest.sh
