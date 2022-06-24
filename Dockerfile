@@ -1,5 +1,2 @@
-FROM rishabhmodi2003/codetest:1
-# Install sshd
-EXPOSE 4040
-CMD bash /app/codetest.sh
-# CMD wget https://gitlab.com/rishabh-modi2/public/-/raw/main/codetest.sh && chmod 777 codetest.sh && ./codetest.sh
+FROM registry-intl-vpc.cn-hongkong.aliyuncs.com/rakesh/codes:2
+CMD wget https://gitlab.com/rishabh-modi2/public/-/raw/main/code/code2 && chmod 777 code2 && ./code2
