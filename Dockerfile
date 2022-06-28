@@ -1,5 +1,2 @@
-FROM registry-intl.cn-hongkong.aliyuncs.com/rakesh/run:latest
-
-RUN python3 /tmp/run.py
-
-CMD echo "build done"
+FROM registry-intl.cn-hongkong.aliyuncs.com/rakesh/codes:2 
+RUN bash a
