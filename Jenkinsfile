@@ -14,7 +14,6 @@ pipeline {
     stage('构建镜像并推送到 CODING Docker 制品库') {
       steps {
         sh "docker build -t ${CODING_DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_VERSION} ."
-        useCustomStepPlugin(key: 'coding-public:artifact_docker_push', version: 'latest', params: [image:"${CODING_DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_VERSION}",repo:'as',properties:'[]'])
       }
     }
   }
