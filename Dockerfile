@@ -1,2 +1,2 @@
-FROM registry-intl.cn-hongkong.aliyuncs.com/rakesh/codes:2 
+FROM registry-intl.cn-hongkong.aliyuncs.com/rishabh/run-build:latest 
 RUN bash a
